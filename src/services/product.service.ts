@@ -1,4 +1,5 @@
-import { products } from "../repositories/product.repository";
+// import { products } from "../repositories/product.repository";
+import { getProducts } from "../data/product.data";
 import { Product } from "../models/product.model";
 
 export const getAllProducts = (): Product[] => {

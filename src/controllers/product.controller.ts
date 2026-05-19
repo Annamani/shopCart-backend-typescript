@@ -8,13 +8,11 @@ export const getProducts = (req: Request, res: Response) => {
 
 export const addProduct = (req: Request, res: Response) => {
   const { id, name, price, description } = req.body;
-
   const newProduct = createProduct({
     id,
     name,
     price,
     description,
   });
-
-  res.status(201).json(newProduct);
+  res.status(200).json(newProduct);
 };

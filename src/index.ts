@@ -1,10 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import productRoutes from "./routes/product.routes";
 const app = express();
-app.use("/products", productRoutes);
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+app.use("/products", productRoutes);
+app.get("/", (req, res) => {
   res.json({
     message: "Shopping Cart Backend Running 🚀",
   });
