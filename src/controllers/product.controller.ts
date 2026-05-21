@@ -1,20 +1,27 @@
 import { Request, Response } from "express";
 import { createProduct, getAllProducts } from "../services/product.service";
+import { createProductSchema } from "../validations/product.validation";
 
-export const getProducts = (req: Request, res: Response) => {
+export const getProducts = (_req: Request, res: Response): void => {
   const products = getAllProducts();
-  res.status(200).json(products);
+
+  res.json(products);
 };
 
-export const addProduct = (req: Request, res: Response) => {
-  const { id, name, price, description } = req.body;
+export const addProduct = (req: Request, res: Response): void => {
+  const result = createProductSchema.safeParse(req.body);
 
-  const newProduct = createProduct({
-    id,
-    name,
-    price,
-    description,
-  });
+  if (!result.success) {
+    res.status(400).json({
+      message: "Validation failed",
+      errors: result.error.issues,
+    });
+    return;
+  }
 
-  res.status(201).json(newProduct);
+  const { name, price, stock } = result.data;
+
+  const product = createProduct(name, price, stock);
+
+  res.status(201).json(product);
 };

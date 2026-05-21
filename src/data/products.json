@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Laptop",
+    "price": 1000,
+    "stock": 5
+  },
+  {
+    "id": "bd4bb454-93c4-4a0c-b019-9cde941a68b9",
+    "name": "Phone",
+    "price": 500,
+    "stock": 10
+  },
+  {
+    "id": "c7aa4c2e-5935-4fb7-8b29-3993d40d97a0",
+    "name": "Phone",
+    "price": 500,
+    "stock": 10
+  },
+  {
+    "id": "437e17b1-561a-4859-8256-6c514b3cb416",
+    "name": "Laptop",
+    "price": 1000,
+    "stock": 5
+  }
+]
