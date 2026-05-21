@@ -58,6 +58,10 @@ The application uses file-based JSON storage to manage products and carts and de
 - GET /cart/total - Calculate cart total
 - DELETE /cart/:cartId - Delete cart
 
+## Contributors
+- [Annamani](https://github.com/Annamani)
+- [Abirame](https://github.com/abikrithika)
+- [Jyoti](https://github.com/JyotiHYF)
 ## Repository
 
 https://github.com/Annamani/shopCart-backend-typescript
