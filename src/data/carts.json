@@ -9,9 +9,14 @@
     "items": [
       {
         "productId": "product-1",
-        "quantity": 2
+        "quantity": 4
       }
     ],
-    "total": 200
+    "total": 400
+  },
+  {
+    "id": "ed911ccc-1286-499f-9995-c56da8ae9cf6",
+    "items": [],
+    "total": 0
   }
 ]
