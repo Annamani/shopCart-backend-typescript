@@ -4,7 +4,9 @@ import {
   getAllCarts,
   addItemToCart,
   calculateCartTotal,
+  deleteCart,
 } from "../services/cart.service";
+import { addItemSchema, cartIdSchema } from "../validations/cart.validation";
 
 export const getCarts = (_req: Request, res: Response): void => {
   const carts = getAllCarts();
@@ -16,26 +18,36 @@ export const createNewCart = (_req: Request, res: Response): void => {
   res.status(201).json(cart);
 };
 export const addItem = (req: Request, res: Response): void => {
-  const { cartId, productId, quantity } = req.body;
-
-  const updatedCart = addItemToCart(cartId, productId, quantity);
-
-  if (!updatedCart) {
-    res.status(404).json({ error: "Cart not found" });
-    return;
+  try {
+    const validatedData = addItemSchema.parse(req.body);
+    const updatedCart = addItemToCart(
+      validatedData.cartId,
+      validatedData.productId,
+      validatedData.quantity,
+    );
+    res.status(200).json(updatedCart);
+  } catch (error) {
+    res.status(400).json(error);
   }
-
-  res.json(updatedCart);
 };
 export const getTotal = (req: Request, res: Response): void => {
-  const { cartId } = req.body;
-
-  const total = calculateCartTotal(cartId);
-
-  if (total === null) {
-    res.status(404).json({ error: "Cart not found" });
-    return;
+  try {
+    const validatedData = cartIdSchema.parse(req.body);
+    const total = calculateCartTotal(validatedData.cartId);
+    res.status(200).json({ total });
+  } catch (error) {
+    res.status(404).json(error);
   }
-
-  res.json({ total });
+};
+export const removeCart = (req: Request, res: Response): void => {
+  try {
+    const { cartId } = req.params;
+    if (Array.isArray(cartId)) {
+      throw new Error("Invalid cart ID");
+    }
+    deleteCart(cartId);
+    res.status(200).json({ message: "Cart deleted successfully" });
+  } catch (error) {
+    res.status(404).json(error);
+  }
 };
