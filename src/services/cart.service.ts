@@ -44,6 +44,7 @@ export const addItemToCart = (
 ): Cart => {
   const carts = getAllCarts();
   const products = getAllProducts();
+
   // checking cart whether cart exists are not
   const cart = carts.find((c) => c.id === cartId);
   if (!cart) throw new Error("Cart not found");
@@ -58,6 +59,7 @@ export const addItemToCart = (
   }
 
   saveCartsToFile(JSON.stringify(carts, null, 2));
+  //Updating the total cart value based on items added
   const totalCartValue = calculateCartTotal(cartId);
   cart.total = totalCartValue;
   return cart;
