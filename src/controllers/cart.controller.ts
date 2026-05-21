@@ -6,6 +6,7 @@ import {
   calculateCartTotal,
   deleteCart,
 } from "../services/cart.service";
+import { addItemSchema, cartIdSchema } from "../validations/cart.validation";
 
 export const getCarts = (_req: Request, res: Response): void => {
   const carts = getAllCarts();
@@ -18,8 +19,12 @@ export const createNewCart = (_req: Request, res: Response): void => {
 };
 export const addItem = (req: Request, res: Response): void => {
   try {
-    const { cartId, productId, quantity } = req.body;
-    const updatedCart = addItemToCart(cartId, productId, quantity);
+    const validatedData = addItemSchema.parse(req.body);
+    const updatedCart = addItemToCart(
+      validatedData.cartId,
+      validatedData.productId,
+      validatedData.quantity,
+    );
     res.status(200).json(updatedCart);
   } catch (error) {
     res.status(400).json(error);
@@ -27,8 +32,8 @@ export const addItem = (req: Request, res: Response): void => {
 };
 export const getTotal = (req: Request, res: Response): void => {
   try {
-    const { cartId } = req.body;
-    const total = calculateCartTotal(cartId);
+    const validatedData = cartIdSchema.parse(req.body);
+    const total = calculateCartTotal(validatedData.cartId);
     res.status(200).json({ total });
   } catch (error) {
     res.status(404).json(error);

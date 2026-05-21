@@ -34,5 +34,11 @@
     "name": "Samsung Tablet",
     "price": 1999,
     "stock": 40
+  },
+  {
+    "id": "c2edb82a-cfbe-48f1-9902-55c1e87654c2",
+    "name": "Samsung Tablet",
+    "price": 1999,
+    "stock": 40
   }
 ]
