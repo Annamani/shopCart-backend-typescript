@@ -10,5 +10,11 @@
     "name": "Phone",
     "price": 500,
     "stock": 10
+  },
+  {
+    "id": "c7aa4c2e-5935-4fb7-8b29-3993d40d97a0",
+    "name": "Phone",
+    "price": 500,
+    "stock": 10
   }
 ]
