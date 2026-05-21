@@ -18,5 +18,34 @@
     "id": "ed911ccc-1286-499f-9995-c56da8ae9cf6",
     "items": [],
     "total": 0
+  },
+  {
+    "id": "85bdd9d8-0380-41a7-bc00-6dfee9033add",
+    "items": [
+      {
+        "productId": "85bdd9d8-0380-41a7-bc00-6dfee9033add",
+        "quantity": 2
+      },
+      {
+        "productId": "deee7ed9-2e07-41d0-ba98-2c866d5f671c",
+        "quantity": 1
+      }
+    ],
+    "total": 0
+  },
+  {
+    "id": "42fbd05b-3810-4bfd-9b80-a946334cc3d2",
+    "items": [],
+    "total": 0
+  },
+  {
+    "id": "7f5f5c19-2bed-4b1e-ab4d-c8b43dd6e0c8",
+    "items": [
+      {
+        "productId": "0f4f00ba-a140-476c-b20c-8eca655552b4",
+        "quantity": 12
+      }
+    ],
+    "total": 23988
   }
 ]
