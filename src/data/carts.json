@@ -1,0 +1,22 @@
+[
+  {
+    "id": "test-1",
+    "items": [],
+    "total": 0
+  },
+  {
+    "id": "535c2627-ee7f-47a4-a3c6-acbdf677e2f1",
+    "items": [
+      {
+        "productId": "product-1",
+        "quantity": 4
+      }
+    ],
+    "total": 400
+  },
+  {
+    "id": "ed911ccc-1286-499f-9995-c56da8ae9cf6",
+    "items": [],
+    "total": 0
+  }
+]
