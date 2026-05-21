@@ -1,11 +1,10 @@
-import { Product } from "./product.model";
-
-export type CartItem = {
+export interface CartItem {
   productId: string;
   quantity: number;
-};
+}
 
-export type Cart = {
+export interface Cart {
   id: string;
   items: CartItem[];
-};
+  total: number;
+}
