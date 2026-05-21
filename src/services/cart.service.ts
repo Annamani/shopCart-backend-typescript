@@ -64,3 +64,14 @@ export const addItemToCart = (
   cart.total = totalCartValue;
   return cart;
 };
+
+export const deleteCart = (cartId: string): void => {
+  const carts = getAllCarts();
+  //Find cart index in order to delete
+  const cartIndex = carts.findIndex((c) => c.id === cartId);
+  if (cartIndex === -1) {
+    throw new Error("Cart not found");
+  }
+  carts.splice(cartIndex, 1);
+  saveCartsToFile(JSON.stringify(carts, null, 2));
+};
