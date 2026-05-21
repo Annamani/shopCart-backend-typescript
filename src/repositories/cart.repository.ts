@@ -1,3 +1,11 @@
-import { Cart } from "../models/cart.model";
+import { readFileSync, writeFileSync } from "fs";
 
-export const carts: Cart[] = [];
+const FILE_PATH = "./src/data/carts.json";
+
+export const getCartsFromFile = (): string => {
+  return readFileSync(FILE_PATH, "utf-8");
+};
+
+export const saveCartsToFile = (data: string): void => {
+  writeFileSync(FILE_PATH, data);
+};
