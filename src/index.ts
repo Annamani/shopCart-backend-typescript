@@ -1,16 +1,19 @@
-import express, { Request, Response } from "express";
-import productRoutes from "./routes/product.routes";
+import express from "express";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app = express();
-app.use("/products", productRoutes);
+
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (_req, res) => {
   res.json({
-    message: "Shopping Cart Backend Running 🚀",
+    message: "Shopping Cart API running",
   });
 });
-
-const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
